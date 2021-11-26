@@ -1,0 +1,70 @@
+.content {
+  width: 50px; /*必须设置宽度*/
+  overflow: hidden; /*溢出隐藏*/
+  white-space: nowrap; /*强制不换行*/
+  text-overflow: ellipsis; /*以省略号显示*/
+  background-color: pink;
+}
+
+.tooltipText {
+  visibility: hidden;
+  width: 100px;
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.content:hover + .tooltipText {
+  visibility: visible;
+}
+
+#container {
+  display: flex;
+  width: 500px;
+}
+
+#div1 {
+  width: 300px;
+  flex-shrink: 2;
+  background-color: aqua;
+}
+
+#div2 {
+  width: 300px;
+  flex-shrink: 3;
+  background-color: blue;
+}
+
+#box {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 500px;
+  height: 500px;
+  /* align-items: center; */
+  justify-content: space-around;
+}
+
+#header {
+  background-color: blue;
+  order: 0;
+  flex: 1;
+}
+#body {
+  background-color: yellow;
+  order: 1;
+  width: 100px;
+  align-self: center;
+  flex: 1;
+  /* 行内元素居中 */
+  text-align: center;
+  line-height: 166px;
+}
+#footer {
+  background-color: blueviolet;
+  order: 2;
+  flex: 1;
+}

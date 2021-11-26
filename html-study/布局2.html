@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    header {
+      /* 固定高度 */
+      height: 100px;  
+      background-color: aliceblue;
+    }
+    #container {
+      height: calc(100vh - 100px);
+    }
+    #left {
+      float: left;
+      /* 固定宽度 */
+      width: 100px;
+      height: calc(100vh - 100px);
+      background-color: aqua;
+    }
+    #right {
+      /* 自适应宽度 */
+      overflow: hidden;
+      height: calc(100vh - 100px);
+      /* padding:30px; */
+      background-color: blanchedalmond;
+    }
+    #sticky {
+      position: sticky;
+      background-color: brown;
+      top: 200px;
+      left: 200px;
+      width: 100px;
+      height:100px;
+    }
+    footer {
+      height: 200vh;
+      background-color: azure;
+    }
+  </style>
+</head>
+<body>
+  <header>header</header>
+  <div id='container'>
+    <div id='left'>left</div>
+    <div id='right'>
+      123<br>567
+      <!-- <div id='sticky'>sticky</div> -->
+    </div>
+  </div>
+  <!-- <div>footer</div> -->
+</body>
+</html>

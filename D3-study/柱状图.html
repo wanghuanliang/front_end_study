@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <style>
+        .bar:hover {
+          fill: brown;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+        const w = 500;
+        const h = 200;
+        //body下添加svg标签
+        const svg = d3.select("body")
+                      .append("svg")
+                      .attr("width", w)
+                      .attr("height", h);
+        //svg下添加rect标签
+        svg.selectAll("rect")
+           .data(dataset)
+           .enter()
+           .append("rect")
+           .attr("x", (d, i) => i * 30)
+           .attr("y", (d, i) => h - 3 * d)
+           .attr("width", 25)
+           .attr("height", (d, i) => d * 3)
+           .attr("fill", "navy")
+           //添加类属性，css样式也生效了
+           .attr("class", "bar")
+           //rect下添加提示框
+           .append("title")
+           .text((d) => d)
+        //svg下添加text标签
+        svg.selectAll("text")
+           .data(dataset)
+           .enter()
+           .append("text")
+           .text((d) => d)
+           .attr("x", (d, i) => i * 30)
+           .attr("y", (d, i) => h - (d * 3 + 3))   
+
+        svg.selectAll("rect").transition()
+            .duration(750)
+            .delay(function(d,i){return i*50})
+            .attr("fill","red")
+
+        
+      </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ToDoList</h1>
+    <div>
+        <label>新增任务：</label>
+        <input id="content">
+        <button id='addBtn'>提交</button>
+    </div>
+
+    <ul id='list'>
+        <li>示例<button>删除</button></li>
+    </ul>
+
+    <script>
+        var listAdd = document.getElementById('list');
+        var inputInfo = document.getElementById('content');
+        var addBtn = document.getElementById('addBtn');
+        var deleteBtn = document.getElementsByClassName('deleteBtn');
+
+        function addInfo(obj) {
+            listAdd.innerHTML += '<li>' + obj.value + '<button class="deleteBtn" onclick="deleteItem(event)">删除</button></li>';
+            obj.value = '';
+        }
+
+        function deleteItem(event) {
+            console.log(event.target);
+            event.target.parentNode.remove();
+        }
+
+        addBtn.onclick = function () {
+            addInfo(inputInfo);
+            //绑定删除事件
+            // for (i = 0; i < deleteBtn.length; i++){
+            //     deleteBtn[i].onclick = function(){
+            //         deleteInfo(this);
+            //     }
+            // }
+        }
+
+    </script>
+</body>
+
+</html>
